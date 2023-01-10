@@ -1,0 +1,29 @@
+/* pour center les éléments */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* pour prendre toute la hauteur de l'écran */
+}
+
+/* Applique ces styles aux liens de type bouton */
+a.button {
+  display: inline-block; /* Change l'affichage en bloc pour donner un look de bouton */
+  padding: 10px 20px; /* Ajoute de l'espacement intérieur */
+  text-decoration: none; /* Enlève la décoration de lien */
+  background-color: white; /* Change la couleur de fond */
+  color: black; /* Change la couleur du texte */
+  border-radius: 20px; /* Ajoute des bords arrondis */
+  border: 2px solid yellow; /* Ajoute un contour jaune */
+}
+
+/* ajoute un fond d'écran */
+body {
+  background-image: url('https://i.pinimg.com/originals/91/85/51/918551b8a1a6e88271795c563c469ec1.png');
+  background-size: cover;
+}
+h1 {
+  /* ... les autres styles ... */
+  border: 2px solid black; /* contour noir */
+  box-shadow: 0 0 0 2px white; /* contour blanc */
+}
