@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur de métabolisme basal</title>
+    <style>
+         .calc h2 {
+    color: #fff;
+    margin-top: 120px;
+    margin-bottom: 1px;
+    font-size: 64px;
+    text-align: center;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 3px 3px 0 #000;
+  }
+  .calc p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 0;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 46px;
+  }
+  
+  .calculator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .calc input {
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+
+  .calc select {
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  
+  .calc label {
+    color: #fff;
+    text-align: center;
+    display: block;
+    margin-bottom: 12px;
+    text-align:center
+  }
+  
+  #result {
+    font-size: 21px;
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 260px;
+  }
+
+  .result-value {
+    color: yellow;
+  }
+
+  .calc button {
+    position: absolute;
+    z-index: 2;
+    margin-top: 710px;
+    
+  }
+
+  
+  
+  /* Button */
+  button {
+    background: linear-gradient(to bottom, rgb(248, 248, 90), #bb7635);
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  
+  
+  button:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
+  }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>Calculateur de métabolisme basal</h1>
+        <label for="age">Âge (années):</label>
+        <input type="number" id="age" min="0">
+        <label for="weight">Poids (kg):</label>
+        <input type="number" id="weight" min="0">
+        <label for="height">Taille (cm):</label>
+        <input type="number" id="height" min="0">
+        <label for="gender">Sexe:</label>
+        <select id="gender">
+            <option value="male">Homme</option>
+            <option value="female">Femme</option>
+        </select>
+        <button onclick="calculateBMR()">Calculer le métabolisme basal</button>
+        <div id="result"></div>
+    </div>
+    <script>
+        function calculateBMR() {
+            const age = parseFloat(document.getElementById('age').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const gender = document.getElementById('gender').value;
+            let bmr;
+
+            if (gender === 'male') {
+                bmr = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+            } else {
+                bmr = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+            }
+
+            document.getElementById('result').innerHTML = `Votre métabolisme basal est de ${bmr.toFixed(2)} calories par jour.`;
+        }
+    </script>
+</body>
+</html>
